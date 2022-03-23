@@ -6,8 +6,7 @@
             <div class="row">
                 <div class="col-md-4 frost">
                     <div class="toplayer login-card-body">
-                        <div class="col-3 mb-2 mx-auto text-center"><img class="img-fluid rxpress-logo" src="assets/img/logo.png" alt="RxPress Logo"></div>
-                        <h2 class="text-center rxpress-color fw-bold">RxPress</h2>
+                        <h2 class="text-center rxpress-color fw-bold">IRIMS</h2>
                         <div class="pt-0 pe-5 pb-5 ps-5">
                             <form class="form" method="post" id="signup-form">
                                 <div class="mt-4">
