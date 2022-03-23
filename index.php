@@ -76,11 +76,11 @@ session_start();
         $password = stripslashes($_REQUEST['password']);
         $password = mysqli_real_escape_string($con, $password);
         // Check user is exist in the database
-        $query    = "SELECT * FROM user WHERE Username='$username' AND User_pw='$password'";
+        $query    = "SELECT * FROM user WHERE Username='$username' AND UserPassword='$password'";
         $result = mysqli_query($con, $query);
         $rows = mysqli_num_rows($result);
         if ($rows) {
-            $isAdmin = mysqli_query($con, "SELECT Is_admin FROM user WHERE Username='$username' AND User_pw='$password'") or die(mysql_error());
+            $isAdmin = mysqli_query($con, "SELECT IsAdmin FROM user WHERE Username='$username' AND UserPassword='$password'") or die(mysql_error());
             while ($row = mysqli_fetch_row($isAdmin)) {
                 $is_admin = $row[0];
             }

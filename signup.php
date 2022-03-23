@@ -1,4 +1,7 @@
-<?php include_once "views/partials/header.html"; ?>
+<?php
+include_once "views/partials/header.html";
+require('config.php');
+?>
 
 <body>
     <section>
@@ -61,7 +64,7 @@
                 icon: "success",
             }).then((result) => {
                 if (result['isConfirmed']) {
-                    window.location.href = "/rxpress-web";
+                    window.location.href = "/irims";
                 }
             })
         }
@@ -74,7 +77,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <?php
-    require('config.php');
     // When form submitted, insert values into the database.
     if (isset($_REQUEST['username'])) {
         // removes backslashes
