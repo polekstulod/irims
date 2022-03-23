@@ -16,6 +16,21 @@
                                     </div>
                                 </div>
                                 <div class="col mb-2"><label class="form-label col-sm-12 col-form-label rxpress-color fs-5" for="username">Username</label><input class="form-control border-form rounded-pill" type="text" id="username" name="username" required></div>
+                                <div class="col mb-2"><label class="form-label col-sm-12 col-form-label rxpress-color fs-5" for="contact">Contact Number</label><input class="form-control border-form rounded-pill" type="number" id="contact" name="contact" required></div>
+                                <div class="form-group">
+                                    <label class="form-label col-sm-12 col-form-label rxpress-color fs-5" for="contact">Department</label>
+                                    <select class="form-select" name="department" id="department">
+                                        <option value="" disabled selected></option>
+                                        <?php
+                                        $sql = "SELECT * FROM department WHERE DepartmentID > 0";
+                                        $result = $con->query($sql) or die(mysql_error());
+
+                                        while ($row = $result->fetch_assoc()) { ?>
+                                            <option value="<?php echo $row['DepartmentID'] ?>"><?php echo $row['DepartmentName'] ?></option>
+                                        <?php }
+                                        ?>
+                                    </select>
+                                </div>
                                 <div class="col mb-2"><label class="form-label col-sm-12 col-form-label rxpress-color fs-5" for="password">Password</label><input class="form-control border-form rounded-pill" type="password" id="password" name="password" required onChange="onChange()"></div>
                                 <div class="col mb-5"><label class="form-label col-sm-12 col-form-label rxpress-color fs-5" for="confirm">Confirm Password</label><input class="form-control border-form rounded-pill" type="password" id="confirm" name="confirm" required onChange="onChange()"></div>
                                 <div class="col mb-2"><button class="col-12 btn btn-color rounded-pill fs-5" name="submit" id="signup" type="submit">SIGN UP</button></div>
@@ -76,7 +91,12 @@
         $password = stripslashes($_REQUEST['password']);
         $password = mysqli_real_escape_string($con, $password);
 
-        $query    = "INSERT into `user` (`UserID`, `Username`, `FirstName`, `LastName`, `User_pw`, `Is_admin`) VALUES ('', '$username', '$firstname', '$lastname', '$password', 0)";
+        $contact = stripslashes($_REQUEST['contact']);
+        $contact = mysqli_real_escape_string($con, $contact);
+
+        $deptID = $_REQUEST['department'];
+
+        $query  = "INSERT INTO `user` (`UserID`, `Username`, `FirstName`, `LastName`, `UserPassword`, `DepartmentID`, `ContactNO`, `IsAdmin`) VALUES (NULL, '$username', '$firstname', '$lastname', '$password', '$deptID', '$contact', b'0') ";
         $result   = mysqli_query($con, $query) or die(mysql_error());
         if ($result) {
             echo "<script>successAlert()</script>";
