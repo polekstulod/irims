@@ -25,12 +25,7 @@ include("session.php");
     ?>
     <section class="bg-theme">
         <?php include_once "views/partials/customer-navbar.php"; ?>
-        <?php include_once "views/partials/menu.html"; ?>
         <div class="container">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#"><span>Home</span></a></li>
-                <li class="breadcrumb-item"><a href="#"><span>Cart</span></a></li>
-            </ol>
             <div class="d-flex justify-content-between">
                 <div class="col-md-8">
                     <form action="checkout-order.php" class="checkout-order-form" method="POST">

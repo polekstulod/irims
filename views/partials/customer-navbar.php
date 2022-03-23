@@ -4,18 +4,6 @@
             <a class="navbar-brand" href="customer-products.php">
                 <img class="img-fluid" src="assets/img/RxPress%20Header.png" width="90" height="90">
             </a>
-            <div class="col-7">
-                <form class="me-auto search-form" target="_self">
-                    <div class="d-flex align-items-center search-bar border">
-                        <input class="form-control search-field" type="search" id="search-field" name="search">
-                        <label class="form-label d-flex mb-0" for="search-field">
-                            <button class="btn btn-primary" type="button">
-                                <i class="fa fa-search search-icon"></i>
-                            </button>
-                        </label>
-                    </div>
-                </form>
-            </div>
             <div class="dropdown">
                 <span>
                     <img class="img-fluid" src="assets/img/avatar.png" width="40" height="40" class="rounded-circle">

@@ -9,20 +9,7 @@ include("session.php");
 <body>
     <section class="bg-theme">
         <?php include_once "views/partials/admin-navbar.php"; ?>
-        <?php include_once "views/partials/menu.html"; ?>
         <div class="container">
-            <div class="d-flex justify-content-end align-items-baseline mt-5">
-                <p class="me-2">Order Creation Date&nbsp;</p>
-                <div class="d-inline-flex justify-content-end">
-                    <div class="input-group-prepend">
-                        <label class="form-label input-group-calendar mb-0" for="datetimerange">
-                            <i class="far fa-calendar-alt"></i>
-                        </label>
-                    </div>
-                </div>
-                <input type="text" id="datetimerange" class="text-start" size="25">
-                <button class="btn btn-primary ms-2 reset-btn" type="button">Reset</button>
-            </div>
             <?php
             $search = $_GET['search-order'] ?? '';
 
@@ -36,11 +23,6 @@ include("session.php");
             ?>
             <div class="d-flex justify-content-between search-orders border mt-2 mb-5">
                 <form class="d-inline-flex">
-                    <select class="btn-select" name="searchField" id="filter-orders">
-                        <option value="order-id" selected>Order ID</option>
-                        <option value="username">Username</option>
-                        <option value="total-price">Total Price</option>
-                    </select>
                     <input class="ms-2" type="search" placeholder="Search..." name="search-order" id="search-order" value="<?php echo $search ?>">
                     <label class="form-label d-flex ms-4 mb-0" for="search-order">
                         <button class="btn btn-primary btn-search-prod rounded-pill" id="search-icon" type="submit" onclick="searchDropDown()">

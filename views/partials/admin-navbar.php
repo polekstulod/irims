@@ -8,18 +8,6 @@ require('config.php');
             <a class="navbar-brand" href="admin-products.php">
                 <img class="img-fluid" src="assets/img/Admin%20Header.png" width="95" height="95">
             </a>
-            <div class="col-7">
-                <form class="me-auto search-form" target="_self">
-                    <div class="d-flex align-items-center search-bar border">
-                        <input class="form-control search-field" type="search" id="search-field" name="search">
-                        <label class="form-label d-flex mb-0" for="search-field">
-                            <button class="btn btn-primary" type="button">
-                                <i class="fa fa-search search-icon"></i>
-                            </button>
-                        </label>
-                    </div>
-                </form>
-            </div>
             <a class="nav-link text-body font-weight-bold px-0" href="orders.php">
                 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="me-sm-1 icon-color orders-icon">
                     <path d="M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V7C19 5.89543 18.1046 5 17 5H15M9 5C9 6.10457 9.89543 7 11 7H13C14.1046 7 15 6.10457 15 5M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5M12 12H15M12 16H15M9 12H9.01M9 16H9.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -45,37 +33,17 @@ require('config.php');
                                                 <input type="file" class="form-control modal-form" name="productImage" id="productImage">
                                             </div>
                                             <div class="form-group">
-                                                <label for="brandName" class="label-modal">Brand Name</label>
+                                                <label for="brandName" class="label-modal">Product Name</label>
                                                 <input type="text" class="form-control modal-form" name="brandName" id="brandName" placeholder="Pearly-C">
                                             </div>
                                             <div class="form-group">
-                                                <label for="genericName" class="label-modal">Generic Name</label>
-                                                <input type="text" class="form-control modal-form" name="genericName" id="genericName" placeholder="Ascorbic Acid + Zinc">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="dosageStrength" class="label-modal">Dosage Strength</label>
-                                                <input type="text" class="form-control modal-form" name="dosageStrength" id="dosageStrength" placeholder="500 MG / 10 MG">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="dosageForm" class="label-modal">Dosage Form</label>
-                                                <input type="text" class="form-control modal-form" name="dosageForm" id="dosageForm" placeholder="Capsule">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="drugAdministration" class="label-modal">Drug Administration</label>
-                                                <input type="text" class="form-control modal-form" name="drugAdministration" id="drugAdministration" placeholder="Oral route">
+                                                <label for="stockQuantity" class="label-modal">Stock Quantity</label>
+                                                <input type="number" class="form-control modal-form" name="stockQuantity" id="stockQuantity" placeholder="60">
                                             </div>
                                     </div>
                                 </div>
                                 <div class="col-md">
                                     <div class="modal-body p-0" style="margin-top: 5rem;">
-                                        <div class="form-group">
-                                            <label for="stockQuantity" class="label-modal">Stock Quantity</label>
-                                            <input type="number" class="form-control modal-form" name="stockQuantity" id="stockQuantity" placeholder="60">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="price" class="label-modal">Price</label>
-                                            <input type="number" class="form-control modal-form" name="price" id="price" placeholder="6.88">
-                                        </div>
                                         <div class="form-group">
                                             <label for="manufacturerName" class="label-modal">Manufacturer Name</label>
                                             <select class="form-select modal-form" name="manufacturerName" id="manufacturerName" placeholder="Jiangxi Xierkangtai Pharmaceutical Co Ltd">
@@ -101,20 +69,6 @@ require('config.php');
 
                                                 while ($row = $result->fetch_assoc()) { ?>
                                                     <option value="<?php echo $row['CategoryID'] ?>"><?php echo $row['CategoryName'] ?></option>
-                                                <?php }
-                                                ?>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="condition" class="label-modal">Condition Name</label>
-                                            <select class="form-select modal-form" name="condition" id="condition">
-                                                <option value="" disabled selected></option>
-                                                <?php
-                                                $sql = "SELECT * FROM cond;";
-                                                $result = $con->query($sql) or die(mysql_error());
-
-                                                while ($row = $result->fetch_assoc()) { ?>
-                                                    <option value="<?php echo $row['ConditionID'] ?>"><?php echo $row['ConditionName'] ?></option>
                                                 <?php }
                                                 ?>
                                             </select>

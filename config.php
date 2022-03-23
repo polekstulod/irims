@@ -2,7 +2,7 @@
 $host = 'localhost';
 $username = 'root';
 $password = '';
-$database = 'rxpressdb';
+$database = 'rxpress';
 
 $con = mysqli_connect($host, $username, $password, $database);
 // Check connection

@@ -44,7 +44,7 @@ session_start();
                 icon: "success",
             }).then((result) => {
                 if (result['isConfirmed']) {
-                    window.location.href = "/rxpress-web/customer-products.php";
+                    window.location.href = "/irims/customer-products.php";
                 }
             })
         }
@@ -57,7 +57,7 @@ session_start();
                 icon: "success",
             }).then((result) => {
                 if (result['isConfirmed']) {
-                    window.location.href = "/rxpress-web/admin-products.php";
+                    window.location.href = "/irims/admin-products.php";
                 }
             })
         }

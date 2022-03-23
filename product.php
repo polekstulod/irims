@@ -9,16 +9,8 @@ include('functions.php');
 <body>
     <section class="bg-theme">
         <?php include_once "views/partials/customer-navbar.php"; ?>
-        <?php include_once "views/partials/menu.html"; ?>
 
         <div class="container">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#"><span>Home</span></a></li>
-                <li class="breadcrumb-item"><a href="#"><span>Over The Counter Medicine</span></a></li>
-                <li class="breadcrumb-item"><a href="#"><span>Supplements</span></a></li>
-                <li class="breadcrumb-item"><a href="#"><span>Electrolyte Supplements</span></a></li>
-                <li class="breadcrumb-item"><a href="#"><span>Rhea Sodium Chloride</span></a></li>
-            </ol>
             <div class="d-flex justify-content-between mt-3">
                 <?php productInfo($con) ?>
             </div>
