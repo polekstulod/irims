@@ -49,11 +49,11 @@ require('config.php');
                                             <select class="form-select modal-form" name="manufacturerName" id="manufacturerName" placeholder="Jiangxi Xierkangtai Pharmaceutical Co Ltd">
                                                 <option value="" disabled selected></option>
                                                 <?php
-                                                $sql = "SELECT * FROM manufacturer;";
+                                                $sql = "SELECT * FROM supplier;";
                                                 $result = $con->query($sql) or die(mysql_error());
 
                                                 while ($row = $result->fetch_assoc()) { ?>
-                                                    <option value="<?php echo $row['ManufacturerID'] ?>"><?php echo $row['ManufacturerName'] ?></option>
+                                                    <option value="<?php echo $row['SupplierID'] ?>"><?php echo $row['SupplierName'] ?></option>
                                                 <?php }
                                                 ?>
                                             </select>

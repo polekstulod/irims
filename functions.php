@@ -170,7 +170,7 @@ function listProducts($con)
         $user_ID = $row[0];
     }
 
-    $search = $_GET['search-product'] ?? '';
+    /*     $search = $_GET['search-product'] ?? '';
 
     $catArr = '';
     if (isset($_GET['category'])) {
@@ -222,13 +222,13 @@ function listProducts($con)
         || manufacturer.ManufacturerName LIKE '%$search%'";
     } else {
         $sql = "SELECT * FROM product INNER JOIN manufacturer ON product.ManufacturerID = manufacturer.ManufacturerID;";;
-    }
-
+    } */
+    $sql = "SELECT * FROM `product` inner join supplier on product.SupplierID = supplier.SupplierID;";
     $result = $con->query($sql) or die(mysql_error());
 
     while ($row = $result->fetch_assoc()) { ?>
         <div class="card card-product rounded-3 mb-3" style="width: 14.85em;">
-            <img class="img-fluid card-img-top w-100 d-block d-inline-block mx-auto" src="assets/img/product-img/<?php echo $row['ProductID']; ?>.jpeg">
+            <img class="img-fluid card-img-top w-100 d-block d-inline-block mx-auto" src="assets/img/product-img/<?php echo $row['ProductID']; ?>.png">
             <div class="card-body">
                 <hr>
                 <a class="card-link product-link" href="<?php
@@ -240,8 +240,9 @@ function listProducts($con)
                                                         }
                                                         echo $url . '?title=' . $row['ProductID'];
                                                         ?>">
-                    <?php echo $row['BrandName'] . ' ' . $row['DosageStrength'] ?></a>
-                <p class="product-brand"><?php echo $row['ManufacturerName'] ?></p>
+                    <?php echo $row['ProductName'] ?></a>
+                <p class="product-brand"><?php echo $row['SupplierName'] ?></p>
+                <p class="sale-price"><?php echo $row['Stocks'] ?> items left</p>
                 <?php
                 if ($_SESSION['username'] == 'admin') { ?>
                     <div class="d-flex justify-content-center">
@@ -262,7 +263,6 @@ function listProducts($con)
                                 </a>
                             </div>
                             <input type="hidden" name="product_id" value="<?php echo $row['ProductID'] ?>">
-                            <input type="hidden" name="price" value="<?php echo $row['Price'] ?>">
                         </div>
                     </form>
                 <?php }
