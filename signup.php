@@ -9,7 +9,7 @@ require('config.php');
             <div class="row">
                 <div class="col-md-4 frost">
                     <div class="toplayer login-card-body">
-                        <h2 class="text-center rxpress-color fw-bold">IRIMS</h2>
+                        <img class="img-fluid mx-auto d-block" src="assets/img/IRIMSLOGO.png" width="95" height="95">
                         <div class="pt-0 pe-5 pb-5 ps-5">
                             <form class="form" method="post" id="signup-form">
                                 <div class="mt-4">

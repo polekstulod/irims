@@ -11,7 +11,7 @@ session_start();
             <div class="row">
                 <div class="col-md-4 frost">
                     <div class="toplayer login-card-body">
-                        <h2 class="text-center rxpress-color fw-bold">IRIMS</h2>
+                        <img class="img-fluid mx-auto d-block" src="assets/img/IRIMSLOGO.png" width="95" height="95">
                         <div class="mt-5 pt-0 pe-5 pb-5 ps-5">
                             <form class="form" method="post" name="login">
                                 <div class="col mb-3"><label class="form-label col-sm-12 col-form-label rxpress-color fs-5" for="username">Username</label><input class="form-control border-form rounded-pill" type="text" id="username" name="username" required></div>

@@ -2,7 +2,9 @@
     <nav class="navbar navbar-light navbar-expand-lg navigation-clean-search">
         <div class="container d-flex justify-content-between">
             <a class="navbar-brand" href="customer-products.php">
-                <img class="img-fluid" src="assets/img/IRIMS.png" width="90" height="90">
+                <h2 class="text-center rxpress-color fw-bold">IRIMS</h2>
+
+                <!-- <img class="img-fluid" src="assets/img/IRIMS.png" width="90" height="90"> -->
             </a>
             <div class="dropdown">
                 <span>

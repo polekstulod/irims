@@ -6,7 +6,7 @@ require('config.php');
     <nav class="navbar navbar-light navbar-expand-lg navigation-clean-search">
         <div class="container d-flex justify-content-between">
             <a class="navbar-brand" href="admin-products.php">
-                <img class="img-fluid" src="assets/img/IRIMS.png" width="95" height="95">
+                <h2 class="text-center rxpress-color fw-bold">IRIMS</h2>
             </a>
             <a class="nav-link text-body font-weight-bold px-0" href="orders.php">
                 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="me-sm-1 icon-color orders-icon">
