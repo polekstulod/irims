@@ -62,7 +62,6 @@ require('config.php');
                                             <label for="category" class="label-modal">Category Name</label>
                                             <select class="form-select modal-form" name="category" id="category">
                                                 <option value="" disabled selected></option>
-                                                <option selected></option>
                                                 <?php
                                                 $sql = "SELECT * FROM category;";
                                                 $result = $con->query($sql) or die(mysql_error());
