@@ -223,7 +223,7 @@ function listProducts($con)
     } else {
         $sql = "SELECT * FROM product INNER JOIN manufacturer ON product.ManufacturerID = manufacturer.ManufacturerID;";;
     } */
-    $sql = "SELECT * FROM `product` inner join supplier on product.SupplierID = supplier.SupplierID;";
+    $sql = "SELECT * FROM `product` INNER JOIN supplier ON product.SupplierID = supplier.SupplierID;";
     $result = $con->query($sql) or die(mysql_error());
 
     while ($row = $result->fetch_assoc()) { ?>
