@@ -5,16 +5,7 @@ function productInfo($con)
 { ?>
     <?php
     $productID = $_GET['title'];
-    $sql = "SELECT p.ProductID, p.CategoryID, p.BrandName, p.StockQuantity, p.Price, p.DosageStrength, p.GenericName, p.DosageForm, p.DrugAdministration, m.ManufacturerName, cg.CategoryName, cond.ConditionName 
-                FROM `product` p
-                LEFT OUTER JOIN `manufacturer` m
-                    ON p.ManufacturerID = m.ManufacturerID
-                LEFT OUTER JOIN `category` cg
-                    ON p.CategoryID = cg.CategoryID
-                LEFT OUTER JOIN `cond`cond
-                    ON cg.CategoryID = cond.CategoryID
-                WHERE p.ProductID = $productID
-                GROUP BY p.ProductID";
+    $sql = "SELECT * FROM `product` INNER JOIN supplier ON product.SupplierID = supplier.SupplierID inner join category on product.CategoryID = category.CategoryID WHERE ProductID = $productID GROUP BY ProductID;";
 
     $result = $con->query($sql) or die(mysql_error());
 
@@ -22,7 +13,7 @@ function productInfo($con)
         $globalProdID = $row['ProductID'];
         $globalCatID = $row['CategoryID']; ?>
         <div class="col-md-6">
-            <div class="d-flex justify-content-center bg-white shadow p-3 mb-5 bg-body rounded"><img class="img-fluid product-img" src="assets/img/product-img/<?php echo $row['ProductID']; ?>.jpeg"></div>
+            <div class="d-flex justify-content-center bg-white shadow p-3 mb-5 bg-body rounded"><img class="img-fluid product-img" src="assets/img/product-img/<?php echo $row['ProductID']; ?>.png"></div>
         </div>
         <div class="col-md-6">
             <div class="card prod-card shadow p-3 mb-5 bg-body rounded">
@@ -31,7 +22,7 @@ function productInfo($con)
                     <h5 class="text-muted mb-4 prod-availability">Availability :&nbsp;
                         <span class="text-color fs-5 fw-bold">&nbsp;
                             <?php
-                            if ($row['StockQuantity'] > 0) {
+                            if ($row['Stocks'] > 0) {
                                 echo "In Stock";
                             } else {
                                 echo "Out of Stock";
@@ -40,15 +31,18 @@ function productInfo($con)
                         </span>
                     </h5>
                     <p class="mb-2">Product Name :
-                        <span class="fw-bold">&nbsp;<?php echo $row['BrandName'] ?></span>
+                        <span class="fw-bold">&nbsp;<?php echo $row['ProductName'] ?></span>
                     </p>
-                    <p class="mb-2">Manufacturer :
-                        <span class="fw-bold">&nbsp;<?php echo $row['ManufacturerName'] ?></span>
+                    <p class="mb-2">Stocks:
+                        <span class="fw-bold">&nbsp;<?php echo $row['Stocks'] ?></span>
+                    </p>
+                    <p class="mb-2">Supplier:
+                        <span class="fw-bold">&nbsp;<?php echo $row['SupplierName'] ?></span>
                     </p>
                     <p class="mb-2">Category :
                         <span class="fw-bold">&nbsp;<?php echo $row['CategoryName'] ?></span>
                     </p>
-                    <?php
+                    <?php /*
                     if ($_SESSION['username'] == 'admin') { ?>
                         <div class="d-flex justify-content-center">
                             <button class="btn btn-primary product-btn-edit rounded-pill" type="button" data-bs-toggle="modal" data-bs-target="#editProductModal">EDIT</button>
@@ -152,7 +146,7 @@ function productInfo($con)
                             </div>
                         </form>
                     <?php }
-                    ?>
+                    */ ?>
                 </div>
             </div>
         </div>
