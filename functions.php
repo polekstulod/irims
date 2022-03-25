@@ -42,7 +42,7 @@ function productInfo($con)
                     <p class="mb-2">Category :
                         <span class="fw-bold">&nbsp;<?php echo $row['CategoryName'] ?></span>
                     </p>
-                    <?php /*
+                    <?php
                     if ($_SESSION['username'] == 'admin') { ?>
                         <div class="d-flex justify-content-center">
                             <button class="btn btn-primary product-btn-edit rounded-pill" type="button" data-bs-toggle="modal" data-bs-target="#editProductModal">EDIT</button>
@@ -64,11 +64,11 @@ function productInfo($con)
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="brandName" class="label-modal">Product Name</label>
-                                                            <input type="text" class="form-control modal-form" name="brandName" id="brandName" value="<?php echo $row['BrandName'] ?>">
+                                                            <input type="text" class="form-control modal-form" name="brandName" id="brandName" value="<?php echo $row['ProductName'] ?>">
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="stockQuantity" class="label-modal">Stock Quantity</label>
-                                                            <input type="number" class="form-control modal-form" name="stockQuantity" id="stockQuantity" value="<?php echo $row['StockQuantity'] ?>">
+                                                            <input type="number" class="form-control modal-form" name="stockQuantity" id="stockQuantity" value="<?php echo $row['Stocks'] ?>">
                                                         </div>
                                                 </div>
                                             </div>
@@ -79,11 +79,11 @@ function productInfo($con)
                                                         <select class="form-select modal-form" name="manufacturerName" id="manufacturerName" value="Jiangxi Xierkangtai Pharmaceutical Co Ltd">
                                                             <option value="" disabled selected></option>
                                                             <?php
-                                                            $sql = "SELECT * FROM manufacturer;";
+                                                            $sql = "SELECT * FROM supplier;";
                                                             $result = $con->query($sql) or die(mysql_error());
 
                                                             while ($row = $result->fetch_assoc()) { ?>
-                                                                <option <?php if ($globalProdID == $row['ManufacturerID']) echo 'selected' ?> value="<?php echo $row['ManufacturerID'] ?>"><?php echo $row['ManufacturerName'] ?></option>
+                                                                <option <?php if ($globalProdID == $row['SupplierID']) echo 'selected' ?> value="<?php echo $row['SupplierID'] ?>"><?php echo $row['SupplierName'] ?></option>
                                                             <?php }
                                                             ?>
                                                         </select>
@@ -92,13 +92,12 @@ function productInfo($con)
                                                         <label for="category" class="label-modal">Category Name</label>
                                                         <select class="form-select modal-form" name="category" id="category">
                                                             <option value="" disabled selected></option>
-                                                            <option selected></option>
                                                             <?php
                                                             $sql = "SELECT * FROM category;";
                                                             $result = $con->query($sql) or die(mysql_error());
 
                                                             while ($row = $result->fetch_assoc()) { ?>
-                                                                <option <?php if ($globalProdID == $row['CategoryID']) echo 'selected' ?> value="<?php echo $row['CategoryID'] ?>"><?php echo $row['CategoryName'] ?></option>
+                                                                <option <?php if ($globalCatID == $row['CategoryID']) echo 'selected' ?> value="<?php echo $row['CategoryID'] ?>"><?php echo $row['CategoryName'] ?></option>
                                                             <?php }
                                                             ?>
                                                         </select>
@@ -120,7 +119,7 @@ function productInfo($con)
                                 </div>
                             </div>
                         </div>
-                    <?php } else {
+                    <?php }/* else {
                         $username = $_SESSION['username'];
                         $sql = "SELECT UserID FROM user WHERE Username = '$username'";
                         $userID = mysqli_query($con, $sql) or die(mysql_error());
