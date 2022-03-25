@@ -119,7 +119,7 @@ function productInfo($con)
                                 </div>
                             </div>
                         </div>
-                    <?php }/* else {
+                    <?php } else {
                         $username = $_SESSION['username'];
                         $sql = "SELECT UserID FROM user WHERE Username = '$username'";
                         $userID = mysqli_query($con, $sql) or die(mysql_error());
@@ -141,11 +141,10 @@ function productInfo($con)
                                     </a>
                                 </div>
                                 <input type="hidden" name="product_id" value="<?php echo $row['ProductID'] ?>">
-                                <input type="hidden" name="price" value="<?php echo $row['Price'] ?>">
                             </div>
                         </form>
                     <?php }
-                    */ ?>
+                    ?>
                 </div>
             </div>
         </div>
