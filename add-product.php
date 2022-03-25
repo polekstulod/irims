@@ -52,7 +52,7 @@ if ($uploadOk == 0) {
       $manufacturer = $_REQUEST['manufacturerName'];
       $category = $_REQUEST['category'];
 
-      $sql = "UPDATE product SET BrandName = '$productName', GenericName = '$genericName', DosageStrength = '$dosageStrength', DosageForm = '$dosageForm', DrugAdministration = '$drugAdministration', StockQuantity = '$stockQuantity', Price = '$price', ManufacturerID = '$manufacturer', CategoryID = '$category' WHERE  ProductID = '$ProductID'";
+      $sql = "UPDATE `product` SET `ProductName`='$productName',`Stocks`='$stockQuantity',`SupplierID`='$manufacturer',`CategoryID`='$category',`IsDeleted`=b'0' WHERE  ProductID = '$ProductID'";
       $result = mysqli_query($con, $sql) or die(mysql_error());
       $url = 'edit-product.php' . "?title=" . $ProductID;
       echo "<script>window.alert('Successfully Edited Products!')</script>";
