@@ -127,7 +127,7 @@ function productInfo($con)
                             $user_ID = $row1[0];
                         }  ?>
 
-                        <form action="cart.php?user_id=<?php echo $user_ID ?>" method="post">
+                        <form action="request.php?user_id=<?php echo $user_ID ?>" method="post">
                             <div class="d-flex justify-content-between">
                                 <button class="d-flex justify-content-center align-items-center btn btn-primary product-btn-buy rounded-pill" type="submit">BUY</button>
                                 <button class="btn btn-primary product-btn-add rounded-pill" id="addcounter" type="button" onClick="addCounter(1)">ADD</button>
@@ -196,7 +196,7 @@ function listProducts($con)
                         <a class="btn btn-primary btn-view rounded-pill ms-1 me-1" href="<?php echo 'edit-product.php' . '?title=' . $row['ProductID']  ?>">VIEW</a>
                     </div>
                 <?php } else { ?>
-                    <form action="cart.php?user_id=<?php echo $user_ID ?>" method="post">
+                    <form action="request.php?user_id=<?php echo $user_ID ?>" method="post">
                         <div class="d-flex justify-content-between">
                             <button class="btn btn-primary btn-buy rounded-pill" type="submit">BUY</button>
                             <button class="btn btn-primary btn-add rounded-pill" id="addcounter" type="button" onClick="addCounter(<?php echo $row['ProductID'] ?>)">ADD</button>
