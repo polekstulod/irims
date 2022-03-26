@@ -161,61 +161,18 @@ function listProducts($con)
     while ($row = mysqli_fetch_row($userID)) {
         $user_ID = $row[0];
     }
+    $sort = $_GET['category'];
+    $search = $_GET['search-product'] ?? '';
 
-    /*     $search = $_GET['search-product'] ?? '';
-
-    $catArr = '';
     if (isset($_GET['category'])) {
-        $name = $_GET['category'];
-        foreach ($name as $category) {
-            $catArr .= $category . ', ';
-        }
-    }
-    $newCatArr = rtrim($catArr, ", ");
-
-    $manArr = '';
-    if (isset($_GET['manufacturer'])) {
-        $name = $_GET['manufacturer'];
-        foreach ($name as $manufacturer) {
-            $manArr .= $manufacturer . ', ';
-        }
-    }
-    $newManArr = rtrim($manArr, ", ");
-
-    $sortMin = 0;
-    $sortMax = 0;
-    if (isset($_GET['sortMin']) && isset($_GET['sortMax'])) {
-        $sortMin = $_GET['sortMin'];
-        $sortMax = $_GET['sortMax'];
-    }
-
-    if (isset($_GET['category']) || isset($_GET['manufacturer'])) {
-        if (!isset($_GET['manufacturer'])) {
-            $sql = "SELECT * from product
-            INNER JOIN manufacturer
-                ON product.ManufacturerID = manufacturer.ManufacturerID
-            INNER JOIN category
-                ON product.CategoryID = category.CategoryID
-                AND category.CategoryID IN ($newCatArr)
-            WHERE product.Is_Deleted = 0;";
-        } else if (!isset($_GET['category'])) {
-            $sql = "SELECT *
-            FROM product
-            INNER JOIN manufacturer
-                ON product.ManufacturerID = manufacturer.ManufacturerID
-                AND manufacturer.ManufacturerID IN ($newManArr)
-            WHERE product.Is_Deleted = 0;";
-        } else {
-            $sql = "SELECT * FROM product INNER JOIN manufacturer ON product.ManufacturerID = manufacturer.ManufacturerID AND manufacturer.ManufacturerID IN ($newManArr) INNER JOIN category ON product.CategoryID = category.CategoryID AND category.CategoryID IN ($newCatArr) WHERE product.Is_Deleted = 0 AND product.Price BETWEEN $sortMin AND $sortMax;";
-        }
-    } else if ($search) {
+        $sql = "SELECT * FROM `product` INNER JOIN supplier ON product.SupplierID = supplier.SupplierID WHERE `IsDeleted` = 0 AND product.CategoryID = $sort;";
+    } /* else if ($search) {
         $sql = "SELECT * FROM product INNER JOIN manufacturer ON product.ManufacturerID = manufacturer.ManufacturerID
         WHERE product.BrandName LIKE '%$search%' || product.Price LIKE '%$search%' || product.DosageStrength LIKE '%$search%'  
         || manufacturer.ManufacturerName LIKE '%$search%'";
-    } else {
-        $sql = "SELECT * FROM product INNER JOIN manufacturer ON product.ManufacturerID = manufacturer.ManufacturerID;";;
-    } */
-    $sql = "SELECT * FROM `product` INNER JOIN supplier ON product.SupplierID = supplier.SupplierID;";
+    } */ else {
+        $sql = "SELECT * FROM `product` INNER JOIN supplier ON product.SupplierID = supplier.SupplierID WHERE `IsDeleted` = 0;";
+    }
     $result = $con->query($sql) or die(mysql_error());
 
     while ($row = $result->fetch_assoc()) { ?>

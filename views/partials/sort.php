@@ -14,7 +14,7 @@ require('config.php');
 
                     while ($row = $result->fetch_assoc()) {
                     ?>
-                        <div class="form-check"><input class="form-check-input" type="checkbox" name="category[]" value="<?php echo $row['CategoryID'] ?>">
+                        <div class="form-check"><input class="form-check-input" type="radio" name="category" id="category-<?php echo $row['CategoryID'] ?>" value="<?php echo $row['CategoryID'] ?>">
                             <label class="form-check-label" for="category-<?php echo $row['CategoryID'] ?>"><?php echo $row['CategoryName'] ?>
                             </label>
                         </div>
