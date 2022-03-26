@@ -33,25 +33,33 @@ include("session.php");
                 </form>
             </div> -->
 
-            <h4>Orders</h4>
+            <h4>Requests</h4>
             <div class="table-responsive">
                 <table class="table orders-table mb-5">
                     <thead class="orders-header">
                         <tr>
-                            <th class="text-center">Order ID</th>
-                            <th class="text-center">Order Date</th>
-                            <th class="text-center">Username</th>
-                            <th class="text-center">Total Price</th>
+                            <th class="text-center">Request ID</th>
+                            <th class="text-center">Request Date</th>
+                            <th class="text-center">Name</th>
+                            <th class="text-center">Department</th>
+                            <th class="text-center">Product Name</th>
+                            <th class="text-center">Category</th>
+                            <th class="text-center">Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
+                        $sql = "SELECT request.RequestID, request.RequestDateTime, CONCAT(user.FirstName, ' ', user.LastName) as Name, department.DepartmentName, product.ProductName, category.CategoryName, request.Status FROM `request` INNER JOIN `user` ON request.UserID = user.UserID INNER JOIN `product` ON request.ProductID = product.ProductID INNER JOIN `department` ON user.DepartmentID = department.DepartmentID INNER JOIN `category` ON product.CategoryID = category.CategoryID; ";
+                        $orders = $con->query($sql) or die($con->error);
                         do { ?>
                             <tr>
-                                <td class="text-center"><?php echo $row['OrderID'] ?></td>
-                                <td class="text-center"><?php echo $row['OrderDate'] ?></td>
-                                <td class="text-center"><?php echo $row['Username'] ?></td>
-                                <td class="text-end"><?php echo $row['Total'] ?></td>
+                                <td class="text-center"><?php echo $row['RequestID'] ?></td>
+                                <td class="text-center"><?php echo $row['RequestDateTime'] ?></td>
+                                <td class="text-center"><?php echo $row['Name'] ?></td>
+                                <td class="text-center"><?php echo $row['DepartmentName'] ?></td>
+                                <td class="text-center"><?php echo $row['ProductName'] ?></td>
+                                <td class="text-center"><?php echo $row['CategoryName'] ?></td>
+                                <td class="text-end"><?php echo $row['Status'] ?></td>
                             </tr>
 
                         <?php  } while ($row = $orders->fetch_assoc());
