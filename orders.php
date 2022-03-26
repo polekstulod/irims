@@ -43,13 +43,14 @@ include("session.php");
                             <th class="text-center">Name</th>
                             <th class="text-center">Department</th>
                             <th class="text-center">Product Name</th>
+                            <th class="text-center">Quantity</th>
                             <th class="text-center">Category</th>
                             <th class="text-center">Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        $sql = "SELECT request.RequestID, request.RequestDateTime, CONCAT(user.FirstName, ' ', user.LastName) as Name, department.DepartmentName, product.ProductName, category.CategoryName, request.Status FROM `request` INNER JOIN `user` ON request.UserID = user.UserID INNER JOIN `product` ON request.ProductID = product.ProductID INNER JOIN `department` ON user.DepartmentID = department.DepartmentID INNER JOIN `category` ON product.CategoryID = category.CategoryID; ";
+                        $sql = "SELECT request.RequestID, request.RequestDateTime, CONCAT(user.FirstName, ' ', user.LastName) as Name, department.DepartmentName, product.ProductName, request.Quantity, category.CategoryName, request.Status FROM `request` INNER JOIN `user` ON request.UserID = user.UserID INNER JOIN `product` ON request.ProductID = product.ProductID INNER JOIN `department` ON user.DepartmentID = department.DepartmentID INNER JOIN `category` ON product.CategoryID = category.CategoryID; ";
                         $orders = $con->query($sql) or die($con->error);
                         do { ?>
                             <tr>
@@ -58,6 +59,7 @@ include("session.php");
                                 <td class="text-center"><?php echo $row['Name'] ?></td>
                                 <td class="text-center"><?php echo $row['DepartmentName'] ?></td>
                                 <td class="text-center"><?php echo $row['ProductName'] ?></td>
+                                <td class="text-center"><?php echo $row['Quantity'] ?></td>
                                 <td class="text-center"><?php echo $row['CategoryName'] ?></td>
                                 <td class="text-end"><?php echo $row['Status'] ?></td>
                             </tr>
