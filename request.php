@@ -7,6 +7,7 @@ $quantity = $_POST['quantity'];
 $productID = $_POST['product_id'];
 $time = date("Y-m-d H:i:s");
 
+mysqli_query($con, "ALTER TABLE request AUTO_INCREMENT=1;") or die(mysql_error());
 $sql = "INSERT INTO `request`(`RequestDateTime`, `UserID`, `ProductID`, `Quantity`, `Status`) VALUES ('$time','$userID','$productID','$quantity',b'0');";
 $result = mysqli_query($con, $sql) or die(mysql_error());
 

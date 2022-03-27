@@ -97,7 +97,7 @@ require('config.php');
         $contact = mysqli_real_escape_string($con, $contact);
 
         $deptID = $_REQUEST['department'];
-
+        mysqli_query($con, "ALTER TABLE user AUTO_INCREMENT=1;") or die(mysql_error());
         $query  = "INSERT INTO `user` (`UserID`, `Username`, `FirstName`, `LastName`, `UserPassword`, `DepartmentID`, `ContactNO`, `IsAdmin`) VALUES (NULL, '$username', '$firstname', '$lastname', '$password', '$deptID', '$contact', b'0') ";
         $result   = mysqli_query($con, $query) or die(mysql_error());
         if ($result) {
