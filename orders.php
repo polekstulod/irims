@@ -52,7 +52,7 @@ include("session.php");
                         <?php
                         $sql = "SELECT request.RequestID, request.RequestDateTime, CONCAT(user.FirstName, ' ', user.LastName) as Name, department.DepartmentName, product.ProductName, request.Quantity, category.CategoryName, request.Status FROM `request` INNER JOIN `user` ON request.UserID = user.UserID INNER JOIN `product` ON request.ProductID = product.ProductID INNER JOIN `department` ON user.DepartmentID = department.DepartmentID INNER JOIN `category` ON product.CategoryID = category.CategoryID; ";
                         $orders = $con->query($sql) or die($con->error);
-                        do { ?>
+                        while ($row = $orders->fetch_assoc()) { ?>
                             <tr>
                                 <td class="text-center"><?php echo $row['RequestID'] ?></td>
                                 <td class="text-center"><?php echo $row['RequestDateTime'] ?></td>
@@ -61,10 +61,15 @@ include("session.php");
                                 <td class="text-center"><?php echo $row['ProductName'] ?></td>
                                 <td class="text-center"><?php echo $row['Quantity'] ?></td>
                                 <td class="text-center"><?php echo $row['CategoryName'] ?></td>
-                                <td class="text-end"><?php echo $row['Status'] ?></td>
+                                <td class="text-center"><?php
+                                                        $id = $row['RequestID'];
+                                                        if ($row['Status'] == 0) {
+                                                            echo "<a href='deliver.php?id=$id' >Click to Deliver</a>";
+                                                        } else {
+                                                            echo 'Delivered';
+                                                        } ?></td>
                             </tr>
-
-                        <?php  } while ($row = $orders->fetch_assoc());
+                        <?php  }
                         ?>
                     </tbody>
                 </table>
