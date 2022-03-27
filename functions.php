@@ -46,7 +46,9 @@ function productInfo($con)
                     if ($_SESSION['username'] == 'admin') { ?>
                         <div class="d-flex justify-content-center">
                             <button class="btn btn-primary product-btn-edit rounded-pill" type="button" data-bs-toggle="modal" data-bs-target="#editProductModal">EDIT</button>
-                            <a href="<?php echo 'delete-product.php' . '?prodID=' . $row['ProductID'] ?>" class="btn btn-primary product-btn-edit rounded-pill" type="button">DELETE</a>
+                            <a href="<?php echo 'delete-product.php' . '?prodID=' . $row['ProductID'] ?>" class="btn">
+                                <i class="fa fa-trash" style="color:red" aria-hidden="true">Delete</i>
+                            </a>
                             <div class="modal fade" id="editProductModal" tabindex="-1" role="dialog" aria-labelledby="AddProduct" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                                     <div class="modal-content bg-modal">
