@@ -2,7 +2,7 @@
 require('config.php');
 ?>
 
-<div>
+<div class="mb-3">
     <nav class="navbar navbar-light navbar-expand-lg navigation-clean-search">
         <div class="container d-flex justify-content-between">
             <a class="navbar-brand" href="admin-products.php">
