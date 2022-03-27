@@ -12,4 +12,4 @@ $sql = "INSERT INTO `request`(`RequestDateTime`, `UserID`, `ProductID`, `Quantit
 $result = mysqli_query($con, $sql) or die(mysql_error());
 
 echo '<script>window.alert("Successfully Requested!")</script>';
-header("Location: customer-products.php");
+echo "<script>window.location.href = 'customer-products.php'</script>";
