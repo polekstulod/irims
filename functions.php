@@ -131,8 +131,8 @@ function productInfo($con)
                             } ?>
                             <form action="request.php?user_id=<?php echo $user_ID ?>" method="post">
                                 <div class="d-flex justify-content-between">
-                                    <button class="d-flex justify-content-center align-items-center btn btn-primary product-btn-buy rounded-pill" type="submit">BUY</button>
-                                    <button class="btn btn-primary product-btn-add rounded-pill" id="addcounter" type="button" onClick="addCounter(1)">ADD</button>
+                                    <button class="d-flex justify-content-center align-items-center btn btn-primary product-btn-buy rounded-pill" type="submit">Request</button>
+                                    <button class="btn btn-primary product-btn-add rounded-pill" id="addcounter" type="button" onClick="addCounter(1)">Add</button>
                                     <div id="counter" class="d-none align-items-center">
                                         <a class="quantity-minus" href="#">
                                             <span>-</span>
@@ -205,8 +205,8 @@ function listProducts($con)
                     ?>
                         <form action="request.php?user_id=<?php echo $user_ID ?>" method="post">
                             <div class="d-flex justify-content-between">
-                                <button class="btn btn-primary btn-buy rounded-pill" type="submit">BUY</button>
-                                <button class="btn btn-primary btn-add rounded-pill" id="addcounter" type="button" onClick="addCounter(<?php echo $row['ProductID'] ?>)">ADD</button>
+                                <button class="btn btn-primary btn-buy rounded-pill" type="submit">Request</button>
+                                <button class="btn btn-primary btn-add rounded-pill" id="addcounter" type="button" onClick="addCounter(<?php echo $row['ProductID'] ?>)">Add</button>
                                 <div id="counter" class="d-none align-items-center">
                                     <a class="quantity-minus" href="#">
                                         <span>-</span>
