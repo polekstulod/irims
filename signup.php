@@ -21,8 +21,8 @@ require('config.php');
                                 <div class="col mb-2"><label class="form-label col-sm-12 col-form-label rxpress-color fs-5" for="username">Username</label><input class="form-control border-form rounded-pill" type="text" id="username" name="username" required></div>
                                 <div class="col mb-2"><label class="form-label col-sm-12 col-form-label rxpress-color fs-5" for="contact">Contact Number</label><input class="form-control border-form rounded-pill" type="number" id="contact" name="contact" required></div>
                                 <div class="form-group">
-                                    <label class="form-label col-sm-12 col-form-label rxpress-color fs-5" for="contact">Department</label>
-                                    <select class="form-select" name="department" id="department">
+                                    <label class="form-label col-sm-12 col-form-label rxpress-color fs-5" for="department">Department</label>
+                                    <select class="form-select rounded-pill" name="department" id="department">
                                         <option value="" disabled selected></option>
                                         <?php
                                         $sql = "SELECT * FROM department WHERE DepartmentID > 0";
