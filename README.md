@@ -12,3 +12,5 @@
 
 username: admin  
 password: admin
+
+### Email me so I can give you the "key.json" file so the Image Recognition API will run.
