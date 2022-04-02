@@ -34,7 +34,25 @@ require('config.php');
                                             </div>
                                             <div class="form-group">
                                                 <label for="brandName" class="label-modal">Product Name</label>
-                                                <input type="text" class="form-control modal-form" name="brandName" id="brandName" placeholder="Pearly-C">
+                                                <select class="form-select modal-form" name="brandName" id="brandName" required>
+                                                    <option value=""><?php if (isset($_FILES['productImage']['tmp_name'])) {
+                                                                            echo $result->info()['localizedObjectAnnotations'][0]['name'];
+                                                                        } else {
+                                                                            echo 'Please upload an image!';
+                                                                        } ?></option>
+                                                    <?php if (isset($_FILES['productImage']['tmp_name'])) {
+                                                        foreach ($web->entities() as $key => $entity) :
+                                                    ?>
+                                                            <option>
+                                                                <?php echo ucfirst($entity->info()['description'])
+                                                                ?>
+                                                            </option>
+                                                    <?php endforeach;
+                                                    } else {
+                                                        echo 'Please upload an image!';
+                                                    }
+                                                    ?>
+                                                </select>
                                             </div>
                                             <div class="form-group">
                                                 <label for="stockQuantity" class="label-modal">Stock Quantity</label>
