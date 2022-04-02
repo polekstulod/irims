@@ -12,10 +12,15 @@ require('config.php');
                 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" class="me-sm-1 icon-color orders-icon">
                     <path d="M9 5H7C5.89543 5 5 5.89543 5 7V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V7C19 5.89543 18.1046 5 17 5H15M9 5C9 6.10457 9.89543 7 11 7H13C14.1046 7 15 6.10457 15 5M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5M12 12H15M12 16H15M9 12H9.01M9 16H9.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
-                <span class="d-sm-inline d-none text-color">Orders</span></a>
+                <span class="d-sm-inline d-none text-color">Requests</span></a>
             <div class="d-flex justify-content-center">
-                <button class="btn btn-primary rounded-pill add-product" type="button" data-bs-toggle="modal" data-bs-target="#addProductModal">
-                    <i class="fas fa-capsules"></i>
+                <button style="font-weight: bolder;" class="btn btn-primary rounded-pill add-product" type="button" data-bs-toggle="modal" data-bs-target="#addProductModal">
+                    <svg role="img" xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" viewBox="0 0 24 24" aria-labelledby="addIconTitle" stroke="#43C7C3" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter" fill="none" color="#43C7C3">
+                        <title id="addIconTitle">Add</title>
+                        <path d="M17 12L7 12M12 17L12 7" />
+                        <circle cx="12" cy="12" r="10" />
+                    </svg>
+                    <span class="d-sm-inline d-none text-color">Add Product</span></a>
                 </button>
                 <div class="modal fade" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="AddProduct" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
