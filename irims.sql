@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 30, 2022 at 09:48 AM
+-- Generation Time: Apr 02, 2022 at 05:44 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -89,13 +89,13 @@ CREATE TABLE `product` (
 INSERT INTO `product` (`ProductID`, `ProductName`, `Stocks`, `SupplierID`, `CategoryID`, `IsDeleted`) VALUES
 (1, 'Scotch Tape', 6, 1, 1, b'0'),
 (2, 'Ballpen', 17, 2, 1, b'0'),
-(3, 'Notepad', 8, 3, 1, b'0'),
+(3, 'Notepad', 25, 3, 1, b'0'),
 (4, 'Scissor', 10, 4, 1, b'0'),
 (5, 'Folder', 10, 5, 1, b'0'),
 (6, 'Monitor', 11, 6, 2, b'0'),
-(7, 'Printer', 8, 7, 2, b'0'),
+(7, 'Printer', 5, 7, 2, b'0'),
 (8, 'Telephone', 10, 8, 2, b'0'),
-(9, 'Scanner', 9, 9, 2, b'0'),
+(9, 'Scanner', 5, 9, 2, b'0'),
 (10, 'Electric fan', 8, 10, 2, b'0');
 
 -- --------------------------------------------------------
@@ -119,10 +119,11 @@ CREATE TABLE `request` (
 
 INSERT INTO `request` (`RequestID`, `RequestDateTime`, `UserID`, `ProductID`, `Quantity`, `Status`) VALUES
 (1, '2022-03-28 18:27:13', 1, 2, 1, b'1'),
-(2, '2022-03-28 18:27:22', 1, 10, 2, b'0'),
+(2, '2022-03-28 18:27:22', 1, 10, 2, b'1'),
 (3, '2022-03-28 18:27:43', 2, 9, 1, b'1'),
 (4, '2022-03-28 18:27:58', 3, 1, 2, b'0'),
-(5, '2022-03-28 18:28:06', 3, 7, 2, b'0');
+(5, '2022-03-28 18:28:06', 3, 7, 2, b'0'),
+(6, '2022-04-02 10:17:55', 4, 3, 2, b'0');
 
 -- --------------------------------------------------------
 
@@ -178,7 +179,8 @@ INSERT INTO `user` (`UserID`, `Username`, `FirstName`, `LastName`, `UserPassword
 (0, 'admin', 'adminFN', 'adminLN', 'admin', 0, 0, b'1'),
 (1, 'user', 'userFN', 'userLN', 'user', 1, 1, b'0'),
 (2, 'paul', 'paul', 'tulod', 'paul', 6, 1234125, b'0'),
-(3, 'micah', 'micah', 'tulod', 'micah', 7, 123456789, b'0');
+(3, 'micah', 'micah', 'tulod', 'micah', 7, 123456789, b'0'),
+(4, 'joshallan', 'josiah', 'rosemblot', 'scott', 8, 69, b'0');
 
 --
 -- Indexes for dumped tables
@@ -234,19 +236,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `ProductID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `ProductID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `request`
 --
 ALTER TABLE `request`
-  MODIFY `RequestID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `RequestID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
