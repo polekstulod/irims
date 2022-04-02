@@ -17,15 +17,6 @@ if (isset($_POST["submitEdit"]) || $_POST["submitAdd"]) {
   }
 }
 
-// Allow certain file formats
-if (
-  $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-  && $imageFileType != "gif"
-) {
-  echo '<script>alert("Sorry, only JPG, JPEG, PNG & GIF files are allowed.")</script>';
-  $uploadOk = 0;
-}
-
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
   echo '<script>alert("Sorry, your file was not uploaded.")</script>';
