@@ -27,6 +27,33 @@ require('config.php');
                                             <h3 class="me-3">Add Product</h3>
                                             <img class="img-fluid" src="assets/img/add-product.png" width="55" height="55" class="rounded-circle">
                                         </div>
+                                        <form class="add-product-form" method="POST" enctype="multipart/form-data">
+                                            <div class="form-group custom-file-button">
+                                                <label for="detectImage" class="label-modal">Detect Image</label>
+                                                <input type="file" class="form-control modal-form" name="productImage" id="detectImage" required>
+                                            </div>
+                                            <button type="submit" name="submitAdd" class="form-control btn btn-save rounded px-3">Detect</button>
+                                        </form>
+                                        <?php
+                                        require "vendor/autoload.php";
+
+                                        use Google\Cloud\Vision\VisionClient;
+
+                                        $vision = new VisionClient(['keyFile' => json_decode(file_get_contents("key.json"), true)]);
+
+                                        if (isset($_FILES['productImage']['tmp_name'])) {
+
+                                            $familyPhotoResource = fopen($_FILES['productImage']['tmp_name'], 'r');
+
+                                            $image = $vision->image($familyPhotoResource, ['WEB_DETECTION', 'OBJECT_LOCALIZATION']);
+
+                                            $result = $vision->annotate($image);
+                                            $web = $result->web();
+                                            echo '<script>window.alert("Image Detected! Click again the add-product to continue.")</script>';
+                                        } else {
+                                            echo 'Please upload an image!';
+                                        }
+                                        ?>
                                         <form action="add-product.php" class="add-product-form" method="POST" enctype="multipart/form-data">
                                             <div class="form-group custom-file-button">
                                                 <label for="productImage" class="label-modal">Product Image</label>
