@@ -166,12 +166,15 @@ function listProducts($con)
     while ($row = mysqli_fetch_row($userID)) {
         $user_ID = $row[0];
     }
-    $sort = $_GET['category'];
-    $search = $_GET['search-product'] ?? '';
-
+    if (isset($_GET['category'])) {
+        $sort = $_GET['category'];
+    }
+    if (isset($_GET['search-product'])) {
+        $search = $_GET['search-product'] ?? '';
+    }
     if (isset($_GET['category'])) {
         $sql = "SELECT * FROM `product` INNER JOIN supplier ON product.SupplierID = supplier.SupplierID WHERE `IsDeleted` = 0 AND product.CategoryID = $sort;";
-    } else if ($search) {
+    } else if (isset($_GET['search-product'])) {
         $sql = "SELECT * FROM product INNER JOIN supplier ON product.SupplierID = supplier.SupplierID WHERE product.ProductName LIKE '%$search%' || supplier.SupplierName LIKE '%$search%';";
     } else {
         $sql = "SELECT * FROM `product` INNER JOIN supplier ON product.SupplierID = supplier.SupplierID WHERE `IsDeleted` = 0;";
