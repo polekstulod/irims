@@ -18,7 +18,7 @@ function productInfo($con)
         <div class="col-md-6">
             <div class="card prod-card shadow p-3 mb-5 bg-body rounded">
                 <div class="card-body">
-                    <h3 class="card-title mt-2 mb-3 fw-bold prod-title"><?php echo $row['BrandName'] ?></h3>
+                    <h3 class="card-title mt-2 mb-3 fw-bold prod-title"><?php echo $row['ProductName'] ?></h3>
                     <h5 class="text-muted mb-4 prod-availability">Availability :&nbsp;
                         <span class="text-color fs-5 fw-bold">&nbsp;
                             <?php
