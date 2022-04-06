@@ -199,6 +199,9 @@ function listProducts($con)
                 <p class="product-brand"><?php echo $row['SupplierName'] ?></p>
                 <p class="sale-price"><?php echo $row['Stocks'] ?> items left</p>
                 <?php
+                if ($row['Stocks'] <= 10) { ?>
+                    <p class="sale-price" style="color:orange">Low Stock!</p>
+                <?php }
                 if ($_SESSION['username'] == 'admin') { ?>
                     <div class="d-flex justify-content-center">
                         <a class="btn btn-primary btn-view rounded-pill ms-1 me-1" href="<?php echo 'edit-product.php' . '?title=' . $row['ProductID']  ?>">VIEW</a>
